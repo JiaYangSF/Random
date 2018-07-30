@@ -8,7 +8,7 @@ import com.sun.java_cup.internal.runtime.Scanner;
 public class TwoStrings {
 
 	public static void main(String[] args) {
-		isSharedSubString("", "");
+		isSharedSubString("abc", "huc");//true
 
 	}
 
@@ -35,11 +35,10 @@ public class TwoStrings {
 	static Set<Character> b;
 	
 	private static boolean isSharedSubStringSolution(String s1, String s2) {
-		for (int i = 0; i < array.length; i++) {
+		for (Character character : a) {
 			
 		}
-		
-		boolean isShared=false;
+		return false;
 	
 	}
 	

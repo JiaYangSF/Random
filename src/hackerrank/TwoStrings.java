@@ -1,46 +1,38 @@
 package hackerrank;
 
 import java.util.HashMap;
-import java.util.Set;
-
-import com.sun.java_cup.internal.runtime.Scanner;
+import java.util.Map;
 
 public class TwoStrings {
 
 	public static void main(String[] args) {
-		isSharedSubString("abc", "huc");//true
+		System.out.println(isSharedSubString("b", "huc"));//true
 
 	}
 
 	private static boolean isSharedSubString(String s1, String s2) {
-		// compare the length
-		// use the longer one and store in the map
-		// search s2 chars if in the map 
-		boolean isShared=false;
-		char[] c1 =s1.toCharArray();
-		char[] c2=s2.toCharArray();
-		int l1=c1.length;
-		int l2= c2.length;
-		int mapSize=0;
-		HashMap<Character, Integer> map = new HashMap<>();
-		for (int i = 0; i < c1.length; i++) {
-			if(map.containsKey(map.get(i))) isShared=true;
-			map.put(c1[i], i);
+		char[] allChar="abcdefghijklmnopqrstuvwxyz".toCharArray();
+		Map stringMap = new HashMap<>();
+		char[] c1= s1.toCharArray();
+		char[] c2= s2.toCharArray();
+		int index=0;
+		for(char c:allChar) {
+			stringMap.put(c, -1);
 		}
-		return isShared;
-	}
-	
-	
-	static Set<Character> a;
-	static Set<Character> b;
-	
-	private static boolean isSharedSubStringSolution(String s1, String s2) {
-		for (Character character : a) {
-			
+		
+		for(char c:c1) {
+			stringMap.put(c, index);
 		}
-		return false;
-	
+		int i=0;
+		for(char c:c2) {
+			while(i<allChar.length-1) {
+				if(stringMap.containsValue(-1)) {
+					return false;
+				}
+				i++;
+			}
+		}
+		return true;
+		
 	}
-	
-
 }
